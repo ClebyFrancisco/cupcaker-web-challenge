@@ -1,17 +1,25 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './styles.module.scss'
+
+
+import styles from './styles.module.scss';
+
 
 interface InputProps {
-  typeRegister: React.ReactNode
-  name: string
-  disabled?: boolean | undefined
-  value?: number
+  typeRegister: React.ReactNode;
+  name: string;
+  disabled?: boolean | undefined;
+  value?: number;
 }
 
-const Input = ({ typeRegister, name, disabled, value }: InputProps) => {
+const Input = ({
+  typeRegister,
+  name,
+  disabled,
+  value,
+}: InputProps): JSX.Element => {
   return (
-    <>
+    <div className={styles.containerInput}>
       <label htmlFor={name}>{name}</label>
       <input
         id={name}
@@ -21,7 +29,7 @@ const Input = ({ typeRegister, name, disabled, value }: InputProps) => {
         disabled={disabled}
         value={value}
       />
-    </>
+    </div>
   )
 }
 
