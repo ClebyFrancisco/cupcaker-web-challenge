@@ -1,19 +1,18 @@
-import React from "react";
-import styles from "./styles.module.scss"
+import React from 'react'
+
+import styles from './styles.module.scss'
+
 interface ButtonProps {
-    text: string;
-    onclick: () => void;
+  type: 'button' | 'submit' | 'reset' | undefined
+  text: string
+  onclick?: () => void
 }
 
-
-const Button = ({text, onclick}:ButtonProps): JSX.Element => {
-  return(
-      <button 
-      className={styles.button}
-      onClick={onclick}
-      >
+const Button = ({ text, onclick, type }: ButtonProps): JSX.Element => {
+  return (
+    <button className={styles.button} onClick={onclick} type={type}>
       {text}
-  </button>
+    </button>
   )
 }
 
