@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 import {
   Button,
-  InitialLetter,
+  CoinDescription,
   Input,
   Panel,
   Select,
@@ -92,11 +92,11 @@ const AddNewCoin = (): JSX.Element => {
       description: selectAddCoin?.description,
       price: selectAddCoin?.price,
       quantity,
-      date: `${date.getFullYear()}-${
+      date: `${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}/${
         date.getMonth() + 1 < 10
           ? '0' + (date.getMonth() + 1)
           : date.getMonth() + 1
-      }-${date.getDate()}`,
+      }/${date.getFullYear()}`,
     })
     localStorage.setItem('coinsReturn', JSON.stringify(dataReturn))
     history.push('/')
@@ -147,7 +147,7 @@ const AddNewCoin = (): JSX.Element => {
             </div>
           </form>
           <div className={styles.description}>
-            <InitialLetter
+            <CoinDescription
               letter={selectAddCoin?.name.toUpperCase().substr(0, 1)}
               text={selectAddCoin?.description}
             />
